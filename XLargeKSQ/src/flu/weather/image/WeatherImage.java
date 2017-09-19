@@ -6,15 +6,21 @@ import java.net.URL;
 
 import javax.imageio.ImageIO;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
 public class WeatherImage {
 	private BufferedImage image;
 	public boolean read(String url){
 		try {
-			URL u=new URL(url);
-			image=ImageIO.read(u);
-			int color=image.getRGB(160, 120);
-			System.out.println(color);
-			
+			Document d=Jsoup.connect(url).get();
+			String actualImage=d.getElementsByAttributeValue("name", "anim").get(0).attr("src");
+			image=ImageIO.read(new URL("http://www.kma.go.kr"+actualImage));
+//			int color=image.getRGB(464, 18);
+//			System.out.println(color);
+			for(double x=18.0;x<475;x+=7.4){
+				System.out.println(image.getRGB(464, (int)x));
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
