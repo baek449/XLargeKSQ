@@ -22,9 +22,10 @@ public class WeatherImage {
 				System.out.println(image.getRGB(464, (int)x));
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 			System.err.println("IO Error");
+			return false;
+		}  catch (NullPointerException e) {
+			System.err.println("Cannot bring image");
 			return false;
 		}
 		return true;
