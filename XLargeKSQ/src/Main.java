@@ -38,10 +38,11 @@ public class Main {
 			}
 		
 		System.out.println("Seoul:"+p[162][120]);
-		System.out.println("Daejeon:"+p[189][205]);
-		System.out.println("Daegu:"+p[267][253]);
-		System.out.println("Busan:"+p[289][288]);
-		System.out.println("Jeju:"+p[138][419]);
+		System.out.println("Seoul:"+p[(int)Pixel.getX(126.978,37.567)][(int)Pixel.getY(37.567)]);
+//		System.out.println("Daejeon:"+p[189][205]);
+//		System.out.println("Daegu:"+p[267][253]);
+//		System.out.println("Busan:"+p[289][288]);
+//		System.out.println("Jeju:"+p[138][419]);
 		
 		/*
 		// Filling the gap
