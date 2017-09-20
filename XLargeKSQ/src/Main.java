@@ -3,7 +3,6 @@ import flu.weather.image.Pixel;
 import flu.weather.image.WeatherImage;
 
 public class Main {
-
 	public static void main(String[] args) {
 		// mhc: humidity
 		// mWs: windspeed

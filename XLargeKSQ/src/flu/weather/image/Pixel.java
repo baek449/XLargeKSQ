@@ -75,4 +75,24 @@ public class Pixel {
 				+ ", wind=" + wind + "]";
 	}
 	
+	// Coordinate Conversion
+	private static double latUpperDeg=39.10570;
+	private static double latLowerDeg=32.63887;
+	private static double longCenterDeg=130.15715;
+	private static double longLeftDeg=123.82967;
+	private static double pixCenter=347.39493;
+	private static double pixHeight=476;
+	
+	public static double getX(double longCoord, double latCoord){
+		return pixCenter*(1-(longCenterDeg-longCoord)*Math.cos(Math.toRadians(latLowerDeg))/(longCenterDeg-longLeftDeg)/Math.cos(Math.toRadians(latCoord)));
+	}
+	public static double getY(double latCoord){
+		return pixHeight*(latUpperDeg-latCoord)/(latUpperDeg-latLowerDeg);
+	}
+	public static double getLatitude(double y){
+		return latUpperDeg-y*(latUpperDeg-latLowerDeg)/pixHeight;
+	}
+	public static double getLongitude(double x, double y){
+		return longCenterDeg-(1-x/pixCenter)*(longCenterDeg-longLeftDeg)*Math.cos(Math.toRadians(getLatitude(y)))/Math.cos(Math.toRadians(latLowerDeg));
+	}
 }
